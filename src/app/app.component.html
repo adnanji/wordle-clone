@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-light">
+  <h1 class="text-center" href="#">Wordle Clone</h1>
+</nav>
+
+<div class="container">
+  <h5 class="row">Debug Messages To Help Development</h5>
+  <!-- <div class="row">LetterCounter: {{this.letterCounter}}</div> -->
+  <!-- <div class="row">WordleID: {{this.wordleID}}</div> -->
+  <div class="row">WordleHint: {{this.wordleHint}}</div>
+  <!-- <div class="row">Game Status: {{this.gameStatus}}</div> -->
+</div>
+
+
+<div class="container">
+  <ngb-alert [ngClass]="{
+    'show': gameStatus != null
+  }"
+  type="primary"
+   #customAlert *ngIf="gameStatus" (closed)="closeAlert()">{{notification}}</ngb-alert>
+</div>
+
+<div class="container mt-5" style="max-width: 400px;">
+  <div class="row my-2 justify-content-center" *ngFor="let key of keys">
+    <div class="col-2 px-1" *ngFor="let item of key">
+      <div 
+        class="border tile"
+        [innerHTML]="item.letter"
+        [ngClass]="{
+          'bg-success'    : item.state == wordleLetterStatus.CorrectLocation,
+          'bg-warning'    : item.state == wordleLetterStatus.InCorrectLocation,
+          'bg-secondary'  : item.state == wordleLetterStatus.WrongLetter
+        }"></div>
+    </div>
+  </div>
+</div>

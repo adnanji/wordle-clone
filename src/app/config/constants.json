@@ -1,0 +1,7 @@
+{
+    "GameStatusNotifications": {
+        "CORRECT": "You've Successfully Guessed The Word. You Won!.",
+        "KEEP_TRYING": "Looks Like It's Not The Word Keep Trying.",
+        "FAILED": "You've Failed To Guess The Word."
+    }
+}
